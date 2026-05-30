@@ -31,6 +31,25 @@ class App extends Component {
     })
   }
 
+  handleChange = (event) => {
+    this.setState({
+      name: event.currentTarget.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const newContact = {
+      name: this.state.name
+    }
+    this.setState((prevstate) => {
+      return {
+        contacts: [...prevstate.contacts, newContact],
+        name: ''
+      }
+    })
+  }
+
   render() {
 
     const { contacts, filter } = this.state
