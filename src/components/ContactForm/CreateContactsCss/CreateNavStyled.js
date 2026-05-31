@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CreateNavStyled = styled.ul`
+const CreateNavStyled = styled.form`
     border: 2px solid #6ab2ff;
     border-radius: 12px;
     list-style: none;

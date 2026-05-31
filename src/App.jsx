@@ -4,6 +4,7 @@ import UserList from "./components/UserList/UserList"
 import ContactForm from "./components/ContactForm/ContactForm"
 
 import "./App.css"
+import { nanoid } from "nanoid"
 
 class App extends Component {
 
@@ -32,20 +33,25 @@ class App extends Component {
   }
 
   handleChange = (event) => {
+    const {name, value} = event.currentTarget
     this.setState({
-      name: event.currentTarget.value
+      // name: event.currentTarget.value
+      [name]: value
     })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
     const newContact = {
-      name: this.state.name
+      id: nanoid(),
+      name: this.state.name,
+      number: this.state.number
     }
     this.setState((prevstate) => {
       return {
         contacts: [...prevstate.contacts, newContact],
-        name: ''
+        name: "",
+        number: ""
       }
     })
   }
@@ -96,7 +102,7 @@ class App extends Component {
         {/* <p>Find contacts by name</p> */}
         {/* <input type="text" onChange={this.handleChangeInput} value={filter} /> */}
 
-        <UserList contacts={filteredConstacts} handleDeleteContact={this.handleDeleteContact} filtered={filteredConstacts} />
+        <UserList key={id} contacts={filteredConstacts} handleDeleteContact={this.handleDeleteContact} filtered={filteredConstacts} />
 
         {/* <ul>
           {filteredConstacts.map((contacts) => {

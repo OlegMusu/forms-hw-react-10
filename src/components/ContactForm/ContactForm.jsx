@@ -8,36 +8,33 @@ class ContactForm extends Component {
 
     render() {
 
-        const { name, handleChange, handleSubmit } = this.props
+        const { name, number, handleChange, handleSubmit } = this.props
 
         return (
             <>
                 <CreateNavStyled onSubmit={handleSubmit}>
-                    <li>
+                    <label>
                         <CreateNameStyled>Name</CreateNameStyled>
-                        <label>
-                            <input
-                                onChange={handleChange}
-                                value={name}
-                                name="name"
-                                type="text"
-                            />
-                        </label>
-                    </li>
+                        <input
+                            onChange={handleChange}
+                            value={name}
+                            name="name"
+                            type="text"
+                        />
+                    </label>
+                    <br />
 
-                    <li>
+                    <label>
                         <CreateNumberStyled>Number</CreateNumberStyled>
-                        <label>
-                            <input
-                                name="number"
-                                type="tel"
-                            />
-                        </label>
-                    </li>
-
-                    <li>
-                        <CreateButtonStyled type="submit">Add contact</CreateButtonStyled>
-                    </li>
+                        <input
+                            onChange={handleChange}
+                            value={number}
+                            name="number"
+                            type="tel"
+                        />
+                    </label>
+                    <br />
+                    <CreateButtonStyled type="submit">Add contact</CreateButtonStyled>
                 </CreateNavStyled>
             </>
         )
